@@ -361,6 +361,8 @@ function addProduitDivers(session, idcaisse) {
 }
 
 
+
+
 // RETOUR ARTICLE
 $('#showRetArticleCatalogue').click(function () {
     $('#retourArticleCatalogue').show()

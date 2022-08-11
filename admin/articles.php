@@ -29,7 +29,7 @@ include('../codebarre/barcode.php');
 		<p id="titleEtiquette" class="title"></p>
 		<p id="colisage"></p>
 		<p id="prixEntier" class="price"><span id="prixDecimal"></span></p>
-		<svg id="barcode2" jsbarcode-textmargin="1"></svg>
+		<svg id="barcode2"  jsbarcode-textmargin="1"></svg>
 	</div>
 
 </div>

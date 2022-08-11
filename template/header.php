@@ -215,6 +215,15 @@
                                  </p>
                              </a>
                          </li>
+                         <li class="nav-item">
+                             <a href="../admin/manageCaisse.php" class="nav-link">
+                                 <i class="nav-icon fas fa-cash-register"></i>
+                                 <p>
+                                     Gestion des caisses
+                                     <!--                                     <span class="right badge badge-danger">New</span>-->
+                                 </p>
+                             </a>
+                         </li>
 					</ul>
 				</nav>
 

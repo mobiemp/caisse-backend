@@ -1,7 +1,7 @@
 <?php 
 
 $imprimantes_ticket = "EPSON_TM-T88VI";
-$nbcaisse = 1;
+$nbcaisse = 3;
 $magasin = "C'IDEAL Magasin Art Discount";
 $adresse = "Chemin LEFAGUYES La Cocoteraie BAT 3";
 $adresse2 = "97440 SAINT ANDRE";

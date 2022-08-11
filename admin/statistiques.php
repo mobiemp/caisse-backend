@@ -181,27 +181,27 @@ $cumul_tva = $total_tva8 + $total_tva2 + $total_tva1
 										<p class="stats-montant"><?php echo $p_espece_euro == "" ? "0.00" : $p_espece_euro ?> €</p>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-8">
-										<p class="stats-info">Chèques € vers.norm</p>
-									</div>
-
-									<div class="col-md-4">
-										<p class="stats-montant">0.00€</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-8">
-										<p class="stats-info">Chèques € vers.+tard</p>
-									</div>
-
-									<div class="col-md-4">
-										<p class="stats-montant">0.00€</p>
-									</div>
-								</div>
+<!--								<div class="row">-->
+<!--									<div class="col-md-8">-->
+<!--										<p class="stats-info"></p>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="col-md-4">-->
+<!--										<p class="stats-montant">0.00€</p>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="row">-->
+<!--									<div class="col-md-8">-->
+<!--										<p class="stats-info">Chèques € vers.+tard</p>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="col-md-4">-->
+<!--										<p class="stats-montant">0.00€</p>-->
+<!--									</div>-->
+<!--								</div>-->
 								<div class="row border-bottom mb-3">
 									<div class="col-md-8">
-										<p class="stats-info">Chèques euro total</p>
+										<p class="stats-info">Chèques € vers.norm</p>
 									</div>
 
 									<div class="col-md-4">
@@ -210,7 +210,7 @@ $cumul_tva = $total_tva8 + $total_tva2 + $total_tva1
 								</div>
 								<div class="row">
 									<div class="col-md-8">
-										<p class="stats-info">Carte bancaire CB-CA</p>
+										<p class="stats-info">Carte bancaire</p>
 									</div>
 
 									<div class="col-md-4">
@@ -226,15 +226,15 @@ $cumul_tva = $total_tva8 + $total_tva2 + $total_tva1
 										<p class="stats-montant">0.00 €</p>
 									</div>
 								</div> -->
-								<div class="row border-bottom mb-3">
-									<div class="col-md-8">
-										<p class="stats-info">Carte fidélité</p>
-									</div>
-
-									<div class="col-md-4">
-										<p class="stats-montant">0.00 €</p>
-									</div>
-								</div>
+<!--								<div class="row border-bottom mb-3">-->
+<!--									<div class="col-md-8">-->
+<!--										<p class="stats-info">Carte fidélité</p>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="col-md-4">-->
+<!--										<p class="stats-montant">0.00 €</p>-->
+<!--									</div>-->
+<!--								</div>-->
 							<!-- <div class="row">
 								<div class="col-md-8">
 									<p class="stats-info">A crédit</p>
@@ -316,15 +316,15 @@ $cumul_tva = $total_tva8 + $total_tva2 + $total_tva1
 									<p class="stats-montant text-danger">0.00 €</p>
 								</div>
 							</div> -->
-							<div class="row border-bottom mb-3">
-								<div class="col-md-8">
-									<p class="stats-info text-danger">Chargement carte fidélité</p>
-								</div>
-
-								<div class="col-md-4 ">
-									<p class="stats-montant text-danger">0.00 €</p>
-								</div>
-							</div>
+<!--							<div class="row border-bottom mb-3">-->
+<!--								<div class="col-md-8">-->
+<!--									<p class="stats-info text-danger">Chargement carte fidélité</p>-->
+<!--								</div>-->
+<!---->
+<!--								<div class="col-md-4 ">-->
+<!--									<p class="stats-montant text-danger">0.00 €</p>-->
+<!--								</div>-->
+<!--							</div>-->
 
 							<div class="row bg-warning border-bottom mb-3 align-middle pt-2 pb-2">
 								<div class="col-md-6 ">

@@ -41,8 +41,9 @@ th,td {
     }
     svg{
         position: absolute;
-        bottom: 1%;
+        bottom: -15px;
         left:-5px;
+
     }
     .title{
         position: absolute;
@@ -58,9 +59,9 @@ th,td {
     .price{
         position: absolute;
         top: 20px;
-        left: 18%;
+        left: 20%;
         margin-top: 0px;
-        margin-left: 0px;
+        margin-left: 20px;
         font-weight: 800;
         font-size: 60px;
     }

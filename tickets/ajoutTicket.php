@@ -69,7 +69,7 @@ if (isset($postdata)) {
 
 
 //		$ticket_ligne .= sprintf($ticket_layout, strval($qte) . "*" . strval($pu_euro), $titreTicket, strval($pu_euro) . "€", strval($taux_tva_rounded) . "%") . "\n";
-            if ($ref !== "0007" && strlen($ref) <= 13) {
+            if (strlen($ref) > 9 && strlen($ref) <= 13  ) {
                 $sql = "SELECT choix_mode_prix,stock,stock_alerte,num FROM table_client_catalogue WHERE ref = '$ref'";
 
                 $query_res = $conn->query($sql);

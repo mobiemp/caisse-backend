@@ -14,8 +14,8 @@
     function imprimeEtiquettes(gencode,titre,prix,colisage){
         JsBarcode("#barcode2", gencode, {
             format:"EAN13",
-            width:1.5,
-            height:18,
+            width:1.8,
+            height:25,
             displayValue:true,
             fontSize:18,
             font:'cursive',
