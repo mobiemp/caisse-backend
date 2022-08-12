@@ -1,8 +1,8 @@
 <?php
 $title = $page = 'Gestion des caisses';
 $accueil = 'index.php';
-//include('../template/header.php');
-//include('../infos.php');
+include('../template/header.php');
+include('../infos.php');
 //include "../login/dbconfig.php";
 //
 //$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);

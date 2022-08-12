@@ -21,12 +21,12 @@ if (!isset($_SESSION['loggedin'])) { //if login in session is not set
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="../template/style.css"/>
 </head>
-<body style="background-color: rgb(242, 242, 242); min-height: 100vh;
+<body style="background-color: rgb(242, 242, 242);
 margin: 0;
 overflow: hidden;">
 <!--<div class="container">-->
-<div class="row" style="height: 100vh;overflow: hidden">
-    <div class="col-md-1" style="background-color: rgb(48, 52, 86);padding-right: 0">
+<div class="row" style="height:100vh;overflow: hidden">
+    <div class="col-md-1" style="background-color: rgb(48, 52, 86);padding-right: 0;position: relative">
         <p class="text-center text-white"
            style="margin-top: 30px;font-size: 22px ;border-bottom: solid;
     border-color: #fff;
@@ -37,9 +37,9 @@ overflow: hidden;">
     border-width: 1px;
     padding-bottom: 50px;cursor:pointer;"><i
                     class="fas fa-cash-register fa-3x"></i></p>
-        <p class="margin:auto" style="position:absolute;bottom: 20px;left: 38px">
-            <a href="../login/logout.php?id_caisse=<?php echo $_SESSION['id_caisse'] ?>&userid=<?php echo $_SESSION['id'] ?>"
-               class="text-danger text-center">Déconnexion</a>
+        <p class="text-center" style="position:absolute;bottom:0;margin: auto;width: 95%">
+            <a  class="btn btn-block btn-danger"   href="../login/logout.php?id_caisse=<?php echo $_SESSION['id_caisse'] ?>&userid=<?php echo $_SESSION['id'] ?>"
+               >Déconnexion</a>
         </p>
     </div>
     <div class="col-md-8 " style="padding: 30px;">
@@ -957,7 +957,7 @@ overflow: hidden;">
                 var pu_euro = id.split('-')[2]
                 var session = '<?php echo $_SESSION['session'] ?>';
                 var id_caisse = '<?php echo $_SESSION['id_caisse'] ?>';
-                if (pu_euro > newRemise) {
+                if ( parseFloat(newRemise) >= parseFloat(pu_euro) ) {
                     $.ajax({
                         url: "../panier.php",
                         type: "POST",
@@ -1068,7 +1068,7 @@ overflow: hidden;">
             var pu_euro = id.split('-')[2]
             var session = '<?php echo $_SESSION['session'] ?>';
             var id_caisse = '<?php echo $_SESSION['id_caisse'] ?>';
-            if (pu_euro > newRemise) {
+            if ( parseFloat(pu_euro) >= parseFloat(newRemise)) {
                 $.ajax({
                     url: "../panier.php",
                     type: "POST",

@@ -1,3 +1,27 @@
+<?php
+include('../DBConfig.php');
+session_start();
+if (!isset($_SESSION['loggedin']) or $_SESSION['role'] == "caisse") { //if login in session is not set
+    header("Location: ../login/");
+}
+
+$checkHoraire = $conn->query("SELECT * FROM table_client_info");
+if($checkHoraire->num_rows == 1){
+    $infos = $checkHoraire->fetch_assoc();
+    $heure_debut = $infos['heure_debut'].":00";
+    $heure_fin = $infos['heure_fin'].":00";
+    $heure_actuel = date('H:i:s');
+    if($_SESSION['role'] != "superadmin"){
+        var_dump(!($heure_actuel >= $heure_debut && $heure_actuel <= $heure_fin));
+        if( !($heure_actuel >= $heure_debut && $heure_actuel <= $heure_fin) == false){
+            echo "<script>alert('Magasin fermé ! ')</script>";
+            session_destroy();
+            header("Location: ../login/?info=close");
+        }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -222,6 +246,22 @@
                                      Gestion des caisses
                                      <!--                                     <span class="right badge badge-danger">New</span>-->
                                  </p>
+                             </a>
+                         </li>
+
+                         <?php if($_SESSION['role'] == "superadmin"): ?>
+                         <li class="nav-item">
+                             <a href="../admin/profil.php" class="nav-link">
+                                 <i class="nav-icon fas fa-user"></i>
+                                 <p>
+                                     Profil
+                                 </p>
+                             </a>
+                         </li>
+                        <?php endif; ?>
+                         <li class="nav-item">
+                             <a href="../admin/manageCaisse.php" class="nav-link">
+                                 <a href="../login/logout.php?userid=<?php echo $_SESSION['id'] ?>&action=admin" class="btn btn-block btn-danger btn-lg">Déconnexion</a>
                              </a>
                          </li>
 					</ul>

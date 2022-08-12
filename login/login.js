@@ -12,13 +12,16 @@ $("#formLogin").submit(function(e) {
         data: form.serialize(), // serializes the form's elements.
         success: function(data)
         {
-            console.log(data)
             var result = JSON.parse(data)
+            console.log(result)
             if(result.response === 1 ){
-                window.location.reload()
-                // $('#msgLogin').addClass('text-success text-center').text(result.message)
-                // $('#formLogin').hide()
-                // $('#chooseCaisse').show()
+
+                if(result.role == "caisse"){
+                    window.location.reload()
+                }
+                else{
+                    window.location.href = "../admin/";
+                }
             }
             else{
                 $('#msgLogin').text(result.message).addClass('text-danger text-center')

@@ -6,7 +6,6 @@ if(isset($_GET['id_caisse']) && isset($_GET['userid'])){
 
     include "dbconfig.php";
     $base_url = $_SERVER['SERVER_NAME'];
-
     $id_caisse = $_GET['id_caisse'];
     $userid = $_GET['userid'];
 
@@ -17,6 +16,18 @@ if(isset($_GET['id_caisse']) && isset($_GET['userid'])){
         header("Location: $url");
     }
 
+
+}elseif(isset($_GET['userid'],$_GET['action'])){
+    session_start();
+    session_destroy();
+
+    include 'dbconfig.php';
+    $base_url = $_SERVER['SERVER_NAME'];
+    $userid = $_GET['userid'];
+    if($_GET['action'] == "admin"){
+        $url = "http://".$base_url."/caisse-backend/login/";
+        header("Location: $url");
+    }
 
 }
 
