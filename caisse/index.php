@@ -957,7 +957,7 @@ overflow: hidden;">
                 var pu_euro = id.split('-')[2]
                 var session = '<?php echo $_SESSION['session'] ?>';
                 var id_caisse = '<?php echo $_SESSION['id_caisse'] ?>';
-                if ( parseFloat(newRemise) >= parseFloat(pu_euro) ) {
+                if ( parseFloat(pu_euro) >= parseFloat(newRemise)) {
                     $.ajax({
                         url: "../panier.php",
                         type: "POST",
