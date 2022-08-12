@@ -856,7 +856,7 @@ overflow: hidden;">
                                     '</div>' +
                                     '<div class="col-md-2">' +
                                     '<p>' +
-                                    '<input type="text" style="width: 50px;" onclick="this.select()" name="remiseEuro" id="remiseEuro-' + result.data.ref + '" value="' + result.data.remise_euro + '" /><span>€</span>' +
+                                    '<input type="text" style="width: 50px;" onclick="this.select()" name="remiseEuro" id="remiseEuro-' + result.data.ref + '-'+result.data.pu_euro+'" value="' + result.data.remise_euro + '" /><span>€</span>' +
                                     '</p>' +
                                     '</div>' +
                                     '</div>' +
