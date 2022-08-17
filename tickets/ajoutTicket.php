@@ -7,9 +7,6 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Autho
 
 require '../vendor/autoload.php';
 
-use Mike42\Escpos\Printer;
-use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
-
 $postdata = file_get_contents('php://input');
 if (isset($postdata)) {
     $request = json_decode($postdata);
@@ -54,6 +51,13 @@ if (isset($postdata)) {
             $total_remise_pourcent += $remise_pourcents;
             $taux_tva_ticket = $taux_tva . "%";
 
+            if($idproduit == "#DIVERS"){
+                $total_euro_du += $qte * $pu_euro;
+            }
+            if($idproduit == "remise"){
+                $total_euro_du -= $qte * $pu_euro;
+            }
+
 
             // GENERATION DES COMMANDES
 
@@ -89,7 +93,7 @@ if (isset($postdata)) {
             }
         }
     }
-    $ttc = $totalPanier . "€";
+    $ttc = $totalPanier . " EUR";
     $ticket .= $ticket_entete . $ticket_corps . $ticket_ligne . "\n" . $ttc . $ticket_pied;
     file_put_contents('ticket.txt', $ticket);
 
@@ -127,31 +131,19 @@ if (isset($postdata)) {
                        VALUES ($last_id,$id_caisse,'$idproduit',$qte,$pu_euro,$promo,$remise,$taux_tva,$famille,'$d',1)");
                 }
 
-                try {
-                 $connector = null;
-                 $connector = new WindowsPrintConnector("Receipt Printer");
 
-                 $printer = new Printer($connector);
+
+                try {
                     if ($printTicket == true) {
-                     $printer -> text($ticket);
-                     $printer -> cut();
-                     $printer->pulse();
-                        echo json_encode(array('response' => 1, 'message' => 'IMPRIME TICKET + OUVERTURE TIROIR CAISSE', 'session' => $session, 'id_caisse' => $id_caisse));
-                        exit;
+                        echo json_encode(array('response' => 1, 'message' => $ticket, 'session' => $session, 'id_caisse' => $id_caisse));
                     } else {
-                     $printer -> text($ticket);
-                     $printer -> cut();
-                        echo json_encode(array('response' => 1, 'message' => 'IMPRIME TICKET SEULEMENT', 'session' => $session, 'id_caisse' => $id_caisse));
-                        exit;
+                        echo json_encode(array('response' => 1, 'message' => $ticket, 'session' => $session, 'id_caisse' => $id_caisse));
                     }
-                 $printer->close();
                 } catch (Exception $e) {
                     echo json_encode("Impossible d'imprimer sur cette imprimante: " . $e->getMessage() . "\n");
-                    exit;
                 }
 
             } else {
                 echo json_encode(array('response' => 0, 'message' => 'ERREUR INSERTION TICKET'));
-                exit;
             }
         }

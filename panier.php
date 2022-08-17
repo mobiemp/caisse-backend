@@ -59,7 +59,7 @@ if (isset($postdata)) {
         $pu_euro = $request->articleDivers;
         $tva = $request->tvaDivers;
         $qte = $request->qteDivers;
-        $taux_tva = ($tva == 8 ? 8.5 : ($tva == 2 ? 2.1 : ($tva == 1 ? 1.05 : 0)));
+//        $taux_tva = ($tva == 8 ? 8.5 : ($tva == 2 ? 2.1 : ($tva == 1 ? 1.05 : 0)));
         $remise = 0;
         $remise_euro = 0;
         $titre = "Divers";
@@ -69,7 +69,7 @@ if (isset($postdata)) {
 
         $sql = "INSERT INTO table_client_panier 
     (`session`,`id_produit`,`ref`, `qte`, `id_caisse`, `pu_euro`, `remise_euro`, `retour`, `famille`, `titre`, `taux_tva`,`date`, `remise`) 
-    VALUES ( $session,'$id_produit' ,'$ref', $qte,  $id_caisse ,$pu_euro, $remise_euro, 'false' ,$famille,'$titre',$taux_tva,$date, $remise)";
+    VALUES ( $session,'$id_produit' ,'$ref', $qte,  $id_caisse ,$pu_euro, $remise_euro, 'false' ,$famille,'$titre',$tva,$date, $remise)";
         $insertDivers = $conn->query($sql);
         if ($insertDivers) {
             $conn->query("UPDATE table_counter SET count = count + 1 WHERE type = 'produit_divers'");

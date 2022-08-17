@@ -45,7 +45,7 @@ include('../DBConfig.php');
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <h2 style="text-align:center;padding:50px 0;">Calcul de la somme restant en espèce le <?php echo $date ?></h2>
+                <h2 style="text-align:center;padding:50px 0;">Calcul de la somme restant en espèce </h2>
 
                 <div class="card card-danger" id="stats">
                     <div class="card-header">
@@ -109,7 +109,7 @@ include('../DBConfig.php');
 
                 <div class="form-row" style="padding:20px;0">
                     <div class="col-6"><button type="button" class="btn btn-primary btn-block" onclick="display()"><i class="fa fa-print"></i> Imprimer la page</button></div>
-                    <div class="col-6"><button type="button" class="btn btn-success btn-block"> Cloturer la caisse</button></div>
+                    <div class="col-6"><button type="button" class="btn btn-success btn-block" onclick="cloturerCaisse()"> Cloturer la caisse</button></div>
                 </div>
             </div>
         </div>
@@ -125,6 +125,28 @@ include('../DBConfig.php');
 <script type="text/javascript">
     function display() {
             window.print();
+         }
+         
+         function cloturerCaisse() {
+             $.ajax({
+                 url: "../tickets/ajoutTicket.php",
+                 type: "POST",
+                 contentType: "application/json",
+                 data: JSON.stringify({
+                     "espece": espece,
+                     "cb": cb,
+                     "cheques": cheque,
+                     "ticket_restaurant": 0,
+                     "total": total,
+                 }),
+                 success: function (data) {
+                     console.log(data)
+                     var result = JSON.parse(data)
+                     if (result.response === 1) {
+                         clearPanier(result.session, result.id_caisse)
+                     }
+                 }
+             })
          }
 
 </script>
